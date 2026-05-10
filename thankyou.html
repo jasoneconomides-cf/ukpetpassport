@@ -7,60 +7,14 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>" />
   <style>
-    .thankyou-section {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .thankyou-box {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .thankyou-icon {
-      font-size: 64px;
-      margin-bottom: 20px;
-    }
-    .thankyou-box h1 {
-      font-size: 2rem;
-      margin-bottom: 16px;
-      color: #1a1a2e;
-    }
-    .thankyou-box p {
-      font-size: 1.1rem;
-      color: #444;
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-    .next-steps {
-      background: #f0f7ff;
-      border-radius: 10px;
-      padding: 24px 28px;
-      margin: 28px 0;
-      text-align: left;
-    }
-    .next-steps h3 {
-      margin: 0 0 14px;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #2563eb;
-    }
-    .next-steps ol {
-      margin: 0;
-      padding-left: 20px;
-      color: #333;
-      line-height: 1.9;
-    }
-    .back-link {
-      display: inline-block;
-      margin-top: 10px;
-      color: #2563eb;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
+    .thankyou-section { min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; }
+    .thankyou-box { max-width: 600px; }
+    .thankyou-icon { font-size: 64px; margin-bottom: 20px; }
+    .thankyou-box h1 { font-size: 2rem; margin-bottom: 16px; }
+    .thankyou-box p { font-size: 1.1rem; color: #555; margin-bottom: 16px; line-height: 1.7; }
+    .steps-list { text-align: left; background: #f8f8ff; border-radius: 12px; padding: 24px 32px; margin: 28px 0; }
+    .steps-list li { margin-bottom: 12px; font-size: 1rem; color: #333; }
+    .back-link { display: inline-block; margin-top: 20px; color: #7c3aed; font-weight: 600; text-decoration: none; }
     .back-link:hover { text-decoration: underline; }
   </style>
 </head>
@@ -74,18 +28,18 @@
     <div class="thankyou-box">
       <div class="thankyou-icon">✅</div>
       <h1>You're all set — check your inbox!</h1>
-      <p>Your <strong>UK Pet Passport Checklist 2026</strong> is on its way. Check your email in the next few minutes (and your spam folder just in case).</p>
+      <p>Your <strong>UK Pet Passport Checklist 2026</strong> is on its way. It should arrive within the next few minutes. Check your spam folder if you don't see it.</p>
 
-      <div class="next-steps">
-        <h3>What happens next</h3>
-        <ol>
-          <li>You'll receive the checklist PDF by email shortly</li>
-          <li>Over the next two weeks we'll send a few short emails with the most common mistakes pet owners make — and how to avoid them</li>
-          <li>If you have questions, just reply to any of those emails</li>
-        </ol>
+      <div class="steps-list">
+        <p><strong>What happens next:</strong></p>
+        <ul>
+          <li>📧 <strong>Right now</strong> — Check your inbox for the checklist download link</li>
+          <li>📅 <strong>In 2 days</strong> — We'll share the #1 mistake pet owners make before flying</li>
+          <li>📋 <strong>In 5 days</strong> — Find out how to get all the paperwork handled for you</li>
+        </ul>
       </div>
 
-      <p>In the meantime, you can always verify the latest rules directly at <a href="https://www.gov.uk/take-pet-abroad" target="_blank" rel="noopener">GOV.UK →</a></p>
+      <p>In the meantime, bookmark <a href="https://www.gov.uk/take-pet-abroad" target="_blank" rel="noopener">GOV.UK's pet travel page</a> — it's the official source for any rule updates.</p>
 
       <a href="/" class="back-link">← Back to UKPetPassport.com</a>
     </div>
@@ -93,8 +47,8 @@
 
   <footer>
     <div class="container">
-      <p>© 2026 UKPetPassport.com &nbsp;|
-        <a href="/privacy.html">Privacy Policy</a> &nbsp;|
+      <p>© 2026 UKPetPassport.com &nbsp;|&nbsp;
+        <a href="/privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
         <a href="/disclaimer.html">Disclaimer</a>
       </p>
     </div>
