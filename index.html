@@ -250,19 +250,23 @@
   </script>
   <!-- End GetResponse Analytics -->
 
-  <!-- GetResponse button fix: prevent page CSS from breaking GR form button -->
+  <!-- GetResponse: ensure container is wide enough for form layout -->
   <style>
-    getresponse-form button,
-    getresponse-form input[type="submit"],
-    getresponse-form [type="submit"] {
-      width: auto !important;
-      display: inline-block !important;
+    getresponse-form {
+      display: block !important;
+      width: 100% !important;
+      min-width: 260px !important;
+    }
+    .optin-card {
+      padding: 24px 20px !important;
+      min-width: 280px !important;
+    }
+    /* Attempt to pierce shadow DOM via ::part if GR supports it */
+    getresponse-form::part(submit-button) {
       writing-mode: horizontal-tb !important;
-      text-orientation: mixed !important;
       white-space: nowrap !important;
-      flex-direction: row !important;
-      min-width: 120px !important;
-      padding: 12px 24px !important;
+      width: 100% !important;
+      padding: 14px 20px !important;
     }
   </style>
 </head>
