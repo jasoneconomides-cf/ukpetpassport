@@ -249,6 +249,22 @@
       })(window, document, 'script', 'https://an.gr-wcon.com/script/8eee50b6-41a4-4f9f-8a6b-7ecba840ec77/ga.js', 'GrTracking');
   </script>
   <!-- End GetResponse Analytics -->
+
+  <!-- GetResponse button fix: prevent page CSS from breaking GR form button -->
+  <style>
+    getresponse-form button,
+    getresponse-form input[type="submit"],
+    getresponse-form [type="submit"] {
+      width: auto !important;
+      display: inline-block !important;
+      writing-mode: horizontal-tb !important;
+      text-orientation: mixed !important;
+      white-space: nowrap !important;
+      flex-direction: row !important;
+      min-width: 120px !important;
+      padding: 12px 24px !important;
+    }
+  </style>
 </head>
 <body>
 
