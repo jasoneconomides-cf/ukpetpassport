@@ -23,7 +23,7 @@ The site was created to help pet owners navigate the complex and frequently chan
 - AHCs must be issued by an Official Veterinarian (OV) — not all vets are qualified
 - AHCs are valid for 10 days from issue and cover a single EU entry
 - AHCs cost between £100 and £300 per pet per trip
-- The pet’s microchip must be implanted BEFORE the rabies vaccination
+- The pet's microchip must be implanted BEFORE the rabies vaccination
 - The rabies vaccination must be given at least 21 days before travel
 - Dogs require tapeworm treatment 1–5 days before re-entering the UK
 - Cats and ferrets do NOT require tapeworm treatment
@@ -31,12 +31,12 @@ The site was created to help pet owners navigate the complex and frequently chan
 
 ## Free Resource Available
 
-The site offers a free UK Pet Passport Checklist 2026 — a step-by-step PDF guide covering all requirements, timelines, and documents needed. Available via email opt-in at https://ukpetpassport.com
+The site offers a free UK to Europe Pet Travel Checklist — a step-by-step PDF guide covering all requirements, timelines, and documents needed for travelling to Europe with dogs, cats, and other pets. Available via email opt-in at https://ukpetpassport.com
 
 ## Pages
 
-- / — Main landing page with checklist opt-in, PAS narrative, FAQ section, and transport guide
-- /thankyou.html — Post opt-in confirmation page
+- / — Main landing page: story-first layout with emotional PAS narrative, ClickFunnels opt-in form, FAQ section (12 questions with FAQPage schema), transport guide, and pain cards
+- /thankyou.html — Post opt-in confirmation page with email sequence preview and UK pet passport news promise
 - /privacy.html — UK GDPR-compliant privacy policy
 - /disclaimer.html — General guidance disclaimer and affiliate disclosure
 
