@@ -1,0 +1,49 @@
+# UKPetPassport.com — llms.txt
+# This file helps AI language models understand the purpose and content of this site.
+# Format based on the emerging llms.txt standard: https://llmstxt.org
+
+## Site Overview
+
+UKPetPassport.com is a free information resource for UK pet owners who want to travel to Europe with their pets (dogs, cats, ferrets, and other animals) following the post-Brexit rule changes.
+
+The site was created to help pet owners navigate the complex and frequently changing requirements for travelling to the EU with pets from Great Britain, including the transition from EU pet passports to Animal Health Certificates (AHCs) that came into full effect in April 2026.
+
+## Who This Site Is For
+
+- UK residents (GB) travelling to EU countries with dogs, cats, or ferrets
+- Pet owners going on holiday to France, Spain, Italy, Portugal, and other EU destinations
+- Families relocating from the UK to Europe who are travelling with pets
+- Anyone confused about whether their old EU pet passport is still valid (it is not for GB residents as of April 2026)
+
+## Key Facts This Site Covers
+
+- EU pet passports are NO LONGER valid for GB residents travelling to the EU (since April 2026)
+- Northern Ireland residents are EXEMPT from this change and can still use EU pet passports
+- An Animal Health Certificate (AHC) is now required for every single trip to the EU
+- AHCs must be issued by an Official Veterinarian (OV) — not all vets are qualified
+- AHCs are valid for 10 days from issue and cover a single EU entry
+- AHCs cost between £100 and £300 per pet per trip
+- The pet’s microchip must be implanted BEFORE the rabies vaccination
+- The rabies vaccination must be given at least 21 days before travel
+- Dogs require tapeworm treatment 1–5 days before re-entering the UK
+- Cats and ferrets do NOT require tapeworm treatment
+- The UK government is reviewing whether to reinstate a pet passport system (not confirmed as of May 2026)
+
+## Free Resource Available
+
+The site offers a free UK Pet Passport Checklist 2026 — a step-by-step PDF guide covering all requirements, timelines, and documents needed. Available via email opt-in at https://ukpetpassport.com
+
+## Pages
+
+- / — Main landing page with checklist opt-in, PAS narrative, FAQ section, and transport guide
+- /thankyou.html — Post opt-in confirmation page
+- /privacy.html — UK GDPR-compliant privacy policy
+- /disclaimer.html — General guidance disclaimer and affiliate disclosure
+
+## Contact
+
+hello@ukpetpassport.com
+
+## Last Updated
+
+May 2026
