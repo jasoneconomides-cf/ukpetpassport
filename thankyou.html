@@ -3,54 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>You're In — UK Pet Passport Checklist</title>
+  <meta name="robots" content="noindex" />
+  <title>You’re In — UK to Europe Pet Travel Checklist</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>" />
   <style>
-    .thankyou-section { min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; }
-    .thankyou-box { max-width: 600px; }
-    .thankyou-icon { font-size: 64px; margin-bottom: 20px; }
-    .thankyou-box h1 { font-size: 2rem; margin-bottom: 16px; }
-    .thankyou-box p { font-size: 1.1rem; color: #555; margin-bottom: 16px; line-height: 1.7; }
-    .steps-list { text-align: left; background: #f8f8ff; border-radius: 12px; padding: 24px 32px; margin: 28px 0; }
-    .steps-list li { margin-bottom: 12px; font-size: 1rem; color: #333; }
-    .back-link { display: inline-block; margin-top: 20px; color: #7c3aed; font-weight: 600; text-decoration: none; }
-    .back-link:hover { text-decoration: underline; }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#333;}
+    .container{max-width:900px;margin:0 auto;padding:0 24px;}
+    img{max-width:100%;height:auto;display:block;}
+
+    /* TOP BAR */
+    .top-bar{background:#1a1a2e;color:#fff;text-align:center;padding:10px 20px;font-size:0.85rem;}
+
+    /* HERO */
+    .ty-hero{position:relative;background:linear-gradient(135deg,#1a1a2e 0%,#2d1b69 100%);overflow:hidden;min-height:420px;display:flex;align-items:center;}
+    .ty-hero-img{position:absolute;right:0;top:0;bottom:0;width:55%;object-fit:cover;object-position:left center;opacity:0.35;}
+    @media(max-width:700px){.ty-hero-img{width:100%;opacity:0.2;}}
+    .ty-hero-content{position:relative;z-index:2;padding:60px 48px;max-width:580px;color:#fff;}
+    @media(max-width:700px){.ty-hero-content{padding:48px 24px;}}
+    .ty-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:6px 16px;font-size:0.82rem;color:rgba(255,255,255,0.9);margin-bottom:20px;}
+    .ty-hero-content h1{font-size:2.6rem;font-weight:900;line-height:1.15;margin-bottom:16px;}
+    @media(max-width:700px){.ty-hero-content h1{font-size:2rem;}}
+    .ty-hero-content h1 em{font-style:normal;color:#c4b5fd;}
+    .ty-hero-content p{font-size:1.05rem;color:rgba(255,255,255,0.82);line-height:1.75;margin-bottom:20px;}
+    .ty-check-inbox{display:inline-flex;align-items:center;gap:10px;background:#f59e0b;color:#1a1a2e;padding:14px 28px;border-radius:10px;font-weight:800;font-size:1rem;}
+
+    /* ICON SECTION */
+    .ty-envelope{text-align:center;padding:50px 24px 20px;}
+    .ty-envelope img{width:200px;height:200px;object-fit:contain;margin:0 auto 20px;}
+    .ty-envelope h2{font-size:1.6rem;color:#1a1a2e;margin-bottom:10px;}
+    .ty-envelope p{color:#666;font-size:1rem;max-width:520px;margin:0 auto;line-height:1.7;}
+
+    /* WHAT HAPPENS NEXT */
+    .ty-next{background:#f5f3ff;padding:50px 0;}
+    .ty-next h2{font-size:1.5rem;color:#1a1a2e;margin-bottom:32px;text-align:center;}
+    .ty-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+    .ty-step{background:#fff;border-radius:14px;padding:28px 24px;box-shadow:0 2px 12px rgba(124,58,237,0.08);border-top:4px solid #7c3aed;}
+    .ty-step .step-time{font-size:0.8rem;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;}
+    .ty-step h3{font-size:1rem;color:#1a1a2e;margin-bottom:8px;font-weight:700;}
+    .ty-step p{font-size:0.88rem;color:#666;line-height:1.65;margin:0;}
+
+    /* PASSPORT NEWS PROMISE */
+    .ty-promise{background:linear-gradient(135deg,#1a1a2e 0%,#2d1b69 100%);padding:50px 0;text-align:center;color:#fff;}
+    .ty-promise .container{max-width:660px;}
+    .ty-promise .promise-icon{font-size:3rem;margin-bottom:16px;}
+    .ty-promise h2{font-size:1.5rem;margin-bottom:14px;}
+    .ty-promise p{font-size:1rem;color:rgba(255,255,255,0.8);line-height:1.75;margin-bottom:12px;}
+    .ty-promise .promise-tag{display:inline-block;background:rgba(196,181,253,0.2);border:1px solid rgba(196,181,253,0.4);border-radius:8px;padding:10px 20px;font-size:0.88rem;color:#c4b5fd;margin-top:8px;}
+
+    /* RESOURCES */
+    .ty-resources{background:#fff;padding:50px 0;}
+    .ty-resources h2{font-size:1.4rem;color:#1a1a2e;margin-bottom:24px;text-align:center;}
+    .ty-resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+    .ty-resource-card{background:#f8f8ff;border-radius:12px;padding:24px;}
+    .ty-resource-card .r-icon{font-size:1.8rem;margin-bottom:10px;}
+    .ty-resource-card h4{font-size:0.97rem;color:#1a1a2e;font-weight:700;margin-bottom:6px;}
+    .ty-resource-card p{font-size:0.85rem;color:#666;line-height:1.6;margin-bottom:10px;}
+    .ty-resource-card a{font-size:0.85rem;color:#7c3aed;font-weight:600;text-decoration:none;}
+    .ty-resource-card a:hover{text-decoration:underline;}
+
+    /* BACK LINK */
+    .ty-footer-cta{text-align:center;padding:40px 24px;}
+    .ty-footer-cta p{color:#888;font-size:0.95rem;margin-bottom:14px;}
+    .ty-back-btn{display:inline-block;background:#7c3aed;color:#fff;padding:14px 32px;border-radius:10px;font-weight:700;text-decoration:none;font-size:0.97rem;}
+    .ty-back-btn:hover{background:#6d28d9;}
+
+    /* FOOTER */
+    footer{background:#111;color:#888;padding:28px 0;text-align:center;font-size:0.83rem;}
+    footer a{color:#a78bfa;text-decoration:none;}
+    footer p{margin-bottom:5px;}
   </style>
 </head>
 <body>
 
-  <div class="top-bar">
-    <span>🐾 UK Pet Passport &nbsp;|&nbsp; Updated May 2026</span>
-  </div>
+  <!-- TOP BAR -->
+  <div class="top-bar">🐾 UK Pet Passport &nbsp;|&nbsp; Updated May 2026</div>
 
-  <section class="thankyou-section">
-    <div class="thankyou-box">
-      <div class="thankyou-icon">✅</div>
-      <h1>You're all set — check your inbox!</h1>
-      <p>Your <strong>UK Pet Passport Checklist 2026</strong> is on its way. It should arrive within the next few minutes. Check your spam folder if you don't see it.</p>
-
-      <div class="steps-list">
-        <p><strong>What happens next:</strong></p>
-        <ul>
-          <li>📧 <strong>Right now</strong> — Check your inbox for the checklist download link</li>
-          <li>📅 <strong>In 2 days</strong> — We'll share the #1 mistake pet owners make before flying</li>
-          <li>📋 <strong>In 5 days</strong> — Find out how to get all the paperwork handled for you</li>
-        </ul>
-      </div>
-
-      <p>In the meantime, bookmark <a href="https://www.gov.uk/take-pet-abroad" target="_blank" rel="noopener">GOV.UK's pet travel page</a> — it's the official source for any rule updates.</p>
-
-      <a href="/" class="back-link">← Back to UKPetPassport.com</a>
+  <!-- HERO -->
+  <section class="ty-hero">
+    <img class="ty-hero-img" src="https://bruavyiflwngsurtjfet.supabase.co/storage/v1/object/public/ac-avatars/d3f2f6aa-f323-4b8e-97b4-088ee29cb60f/generated/1778410459676.png" alt="Happy couple celebrating with their dog and cat, ready for a European trip" />
+    <div class="ty-hero-content">
+      <div class="ty-badge">✅ You’re officially in</div>
+      <h1>Your checklist is <em>on its way.</em></h1>
+      <p>Check your inbox — your <strong>UK to Europe Pet Travel Checklist</strong> should land in the next few minutes. Check your spam folder if you don’t see it.</p>
+      <div class="ty-check-inbox">📧 Go check your inbox now</div>
     </div>
   </section>
 
+  <!-- ENVELOPE ICON -->
+  <section class="ty-envelope">
+    <img src="https://bruavyiflwngsurtjfet.supabase.co/storage/v1/object/public/ac-avatars/d3f2f6aa-f323-4b8e-97b4-088ee29cb60f/generated/1778410470170.png" alt="Dog and cat with envelope and checklist" />
+    <h2>While you wait — here’s what’s coming</h2>
+    <p>Your checklist is just the beginning. Over the next two weeks we’ll send you everything you need to get your pet to Europe and back without a hitch.</p>
+  </section>
+
+  <!-- WHAT HAPPENS NEXT -->
+  <section class="ty-next">
+    <div class="container">
+      <h2>What’s coming your way</h2>
+      <div class="ty-steps">
+        <div class="ty-step">
+          <div class="step-time">📧 Right now</div>
+          <h3>Your checklist arrives</h3>
+          <p>The <strong>UK to Europe Pet Travel Checklist</strong> — every document, every deadline, every step from 8 weeks out to travel day.</p>
+        </div>
+        <div class="ty-step">
+          <div class="step-time">📅 In 2 days</div>
+          <h3>The #1 mistake to avoid</h3>
+          <p>The most common reason pets get refused at the border — and how to make absolutely sure it doesn’t happen to yours.</p>
+        </div>
+        <div class="ty-step">
+          <div class="step-time">📋 In 5 days</div>
+          <h3>Getting it all done for you</h3>
+          <p>Hate paperwork? We’ll show you how to get the whole thing handled — vet coordination, document checking, the lot.</p>
+        </div>
+        <div class="ty-step">
+          <div class="step-time">🛣️ Ongoing</div>
+          <h3>Travel tips for pet owners</h3>
+          <p>Routes, ferries, airlines, destination guides — everything you need to travel Europe comfortably with your dog or cat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PET PASSPORT NEWS PROMISE -->
+  <section class="ty-promise">
+    <div class="container">
+      <div class="promise-icon">📘</div>
+      <h2>When UK Pet Passports come back — you’ll be the first to know.</h2>
+      <p>The government is actively reviewing whether to reinstate a simplified pet passport system for EU travel. The moment that’s confirmed — no more AHC every single trip, just one document valid for life — we’ll email you the same day.</p>
+      <p>You won’t have to check the news. We’ll be watching, and we’ll tell you.</p>
+      <div class="promise-tag">🔔 You’re on the list. We’ll shout when it happens.</div>
+    </div>
+  </section>
+
+  <!-- USEFUL RESOURCES -->
+  <section class="ty-resources">
+    <div class="container">
+      <h2>Useful things to do right now</h2>
+      <div class="ty-resource-grid">
+        <div class="ty-resource-card">
+          <div class="r-icon">👩‍⚕️</div>
+          <h4>Find an Official Veterinarian near you</h4>
+          <p>Not all vets can issue an AHC. Use the RCVS Vet Finder to locate a qualified Official Veterinarian in your area.</p>
+          <a href="https://findavet.rcvs.org.uk" target="_blank" rel="noopener">Search on RCVS →</a>
+        </div>
+        <div class="ty-resource-card">
+          <div class="r-icon">🇬🇧</div>
+          <h4>Check the official government guidance</h4>
+          <p>Rules change. Always verify current requirements at the official GOV.UK pet travel page before booking anything.</p>
+          <a href="https://www.gov.uk/take-pet-abroad" target="_blank" rel="noopener">Go to GOV.UK →</a>
+        </div>
+        <div class="ty-resource-card">
+          <div class="r-icon">🚂</div>
+          <h4>Book your travel method early</h4>
+          <p>Pet spaces on ferries and Eurotunnel Le Shuttle fill up fast in summer. Don’t leave it to the last minute.</p>
+          <a href="https://www.eurotunnel.com/uk/travelling-with-pets/" target="_blank" rel="noopener">See travel options →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BACK LINK -->
+  <div class="ty-footer-cta">
+    <p>Want to share this with another pet owner who’s planning a trip?</p>
+    <a href="/" class="ty-back-btn">← Back to UKPetPassport.com</a>
+  </div>
+
+  <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>© 2026 UKPetPassport.com &nbsp;|&nbsp;
-        <a href="/privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
-        <a href="/disclaimer.html">Disclaimer</a>
-      </p>
+      <p>© 2026 UKPetPassport.com &nbsp;|&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="/disclaimer.html">Disclaimer</a></p>
+      <p style="margin-top:5px;">General guidance only. Always confirm requirements with an Official Veterinarian before travel.</p>
     </div>
   </footer>
 
