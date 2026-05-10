@@ -1,0 +1,442 @@
+/* =========================================
+   UK Pet Passport — Landing Page Styles
+   Clean, fast, mobile-first
+   ========================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #1a5276;
+  --primary-dark: #154360;
+  --accent: #e74c3c;
+  --accent-hover: #c0392b;
+  --green: #27ae60;
+  --bg-light: #f4f6f9;
+  --bg-white: #ffffff;
+  --text-dark: #1a1a2e;
+  --text-mid: #444;
+  --text-light: #777;
+  --border: #dde3ec;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.09);
+  --shadow-sm: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--text-dark);
+  background: var(--bg-light);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+a { color: var(--primary); }
+a:hover { color: var(--primary-dark); }
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* TOP BAR */
+.top-bar {
+  background: var(--primary-dark);
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #fff;
+  padding: 60px 0 70px;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  max-width: 780px;
+}
+
+.hero h1 .highlight {
+  color: #f9ca24;
+}
+
+.subheadline {
+  font-size: clamp(1rem, 2vw, 1.18rem);
+  color: rgba(255,255,255,0.88);
+  max-width: 680px;
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+/* TRUST BAR */
+.trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin-bottom: 40px;
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
+}
+
+/* HERO GRID */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 36px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CHECKLIST BOX */
+.checklist-box {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+
+.checklist-box h2 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.checklist-box h2 em {
+  font-style: normal;
+  color: #f9ca24;
+}
+
+.checklist-intro {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+}
+
+.checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checklist li {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.93);
+  padding-left: 4px;
+  line-height: 1.5;
+}
+
+.small-print {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 18px;
+}
+
+/* FORM BOX */
+.form-box {
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.form-header {
+  background: var(--green);
+  color: #fff;
+  text-align: center;
+  padding: 28px 24px 22px;
+}
+
+.passport-icon {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+
+.form-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.form-header p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.optin-form {
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-mid);
+}
+
+.form-group input {
+  padding: 13px 16px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text-dark);
+  transition: border-color 0.2s;
+  outline: none;
+  width: 100%;
+}
+
+.form-group input:focus {
+  border-color: var(--primary);
+}
+
+.cta-btn {
+  display: block;
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 24px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.1s;
+  letter-spacing: 0.01em;
+}
+
+.cta-btn:hover {
+  background: var(--accent-hover);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.form-note {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* PAIN SECTION */
+.pain-section {
+  background: var(--bg-white);
+  padding: 70px 0;
+}
+
+.pain-section h2 {
+  text-align: center;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 44px;
+  color: var(--text-dark);
+}
+
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.pain-card {
+  background: var(--bg-light);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+
+.pain-card:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.pain-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.pain-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.pain-card p {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+/* PROOF SECTION */
+.proof-section {
+  background: var(--bg-light);
+  padding: 70px 0;
+}
+
+.proof-section h2 {
+  text-align: center;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 44px;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.testimonial {
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--green);
+}
+
+.quote {
+  font-size: 0.97rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 14px;
+}
+
+.attribution {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* CTA SECTION */
+.cta-section {
+  background: var(--primary);
+  color: #fff;
+  padding: 70px 0;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin-bottom: 16px;
+}
+
+.cta-section p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 32px;
+}
+
+.cta-btn-center {
+  display: inline-block;
+  width: auto;
+  padding: 18px 40px;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.cta-section .small-print {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 12px;
+}
+
+/* NEWSLETTER SECTION */
+.newsletter-section {
+  background: #fff8e1;
+  padding: 50px 0;
+  border-top: 2px solid #ffe082;
+  border-bottom: 2px solid #ffe082;
+}
+
+.newsletter-box {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.newsletter-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--text-dark);
+}
+
+.newsletter-box p {
+  font-size: 0.97rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+/* FOOTER */
+footer {
+  background: var(--primary-dark);
+  color: rgba(255,255,255,0.7);
+  padding: 32px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+footer a {
+  color: rgba(255,255,255,0.8);
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+.footer-note {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+}
+
+/* RESPONSIVE TWEAKS */
+@media (max-width: 600px) {
+  .hero { padding: 40px 0 50px; }
+  .trust-bar { flex-direction: column; gap: 8px; }
+  .checklist-box { padding: 22px 18px; }
+  .optin-form { padding: 20px 18px 18px; }
+  .pain-section, .proof-section, .cta-section { padding: 50px 0; }
+}
