@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Allow AI crawlers explicitly
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://ukpetpassport.com/sitemap.xml
