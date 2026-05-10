@@ -250,25 +250,36 @@
   </script>
   <!-- End GetResponse Analytics -->
 
-  <!-- GetResponse: ensure container is wide enough for form layout -->
+  <!-- GetResponse: force button full width and single line -->
   <style>
     getresponse-form {
       display: block !important;
       width: 100% !important;
-      min-width: 260px !important;
     }
     .optin-card {
-      padding: 24px 20px !important;
-      min-width: 280px !important;
+      padding: 24px 16px !important;
     }
-    /* Attempt to pierce shadow DOM via ::part if GR supports it */
-    getresponse-form::part(submit-button) {
-      writing-mode: horizontal-tb !important;
-      white-space: nowrap !important;
+    /* Force the GR shadow host to be full width */
+    getresponse-form,
+    getresponse-form > * {
+      min-width: 0 !important;
       width: 100% !important;
-      padding: 14px 20px !important;
     }
   </style>
+  <!-- GetResponse: inject button fix via script since shadow DOM blocks CSS -->
+  <script>
+    function fixGRButton() {
+      var gr = document.querySelector('getresponse-form');
+      if (!gr || !gr.shadowRoot) return;
+      var btn = gr.shadowRoot.querySelector('button') || gr.shadowRoot.querySelector('[type="submit"]') || gr.shadowRoot.querySelector('.gr-form__submit');
+      if (btn) {
+        btn.style.cssText += ';white-space:nowrap!important;width:100%!important;min-width:200px!important;padding:14px 20px!important;';
+      } else {
+        setTimeout(fixGRButton, 300);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function() { setTimeout(fixGRButton, 500); });
+  </script>
 </head>
 <body>
 
