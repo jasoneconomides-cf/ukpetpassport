@@ -134,14 +134,22 @@
     footer a{color:#a78bfa;text-decoration:none;}
     footer p{margin-bottom:6px;}
   </style>
-  <!-- GetResponse Analytics -->
-  <script type="text/javascript">
-  (function(m, o, n, t, e, r, _){
-          m['__GetResponseAnalyticsObject'] = e;m[e] = m[e] || function() {(m[e].q = m[e].q || []).push(arguments)};
-          r = o.createElement(n);_ = o.getElementsByTagName(n)[0];r.async = 1;r.src = t;r.setAttribute('crossorigin', 'use-credentials');_.parentNode.insertBefore(r, _);
-      })(window, document, 'script', 'https://an.gr-wcon.com/script/8eee50b6-41a4-4f9f-8a6b-7ecba840ec77/ga.js', 'GrTracking');
-  </script>
-  <!-- End GetResponse Analytics -->
+
+  <!-- GetResponse button fix: prevent page CSS from breaking GR form button -->
+  <style>
+    getresponse-form button,
+    getresponse-form input[type="submit"],
+    getresponse-form [type="submit"] {
+      width: auto !important;
+      display: inline-block !important;
+      writing-mode: horizontal-tb !important;
+      text-orientation: mixed !important;
+      white-space: nowrap !important;
+      flex-direction: row !important;
+      min-width: 120px !important;
+      padding: 12px 24px !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -252,8 +260,7 @@
               <h3>Send Me the Free Checklist</h3>
               <p class="optin-sub">Instant access — enter your details below</p>
             </div>
-                        <!-- GetResponse Opt-in Form -->
-            <getresponse-form form-id="95240ca8-c399-4e22-a484-df577cd03cdd" e="1"></getresponse-form>
+            <iframe src='https://youradvantage.clickfunnels.com/optin1778400098349' width='100%' height='650' frameborder='0'></iframe>
           </div>
         </div>
       </div>
