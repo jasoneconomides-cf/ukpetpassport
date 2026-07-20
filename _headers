@@ -1,0 +1,13 @@
+/
+  # Security headers (existing)
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Agent discovery — Link headers per RFC 8288 (item 1 from isitagentready.com)
+  # Points AI agents to key resources for discovery and content negotiation
+  Link: </llms.txt>; rel="llms-txt", </sitemap.xml>; rel="sitemap", </AGENTS.md>; rel="agent-instructions", <https://blog.ukpetpassport.com/>; rel="blog", </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="agent-skills", </.well-known/mcp/server-card.json>; rel="mcp-server-card"
+  Vary: Accept
+
+/.well-known/*
+  Content-Type: application/json
