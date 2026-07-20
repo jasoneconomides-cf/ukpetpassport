@@ -1,0 +1,21 @@
+{
+  "$schema": "https://datatracker.ietf.org/doc/draft-ietf-httpapi-linkset/linkset.json",
+  "title": "UK Pet Passport — Resource Catalog",
+  "description": "Auto-discoverable index of all publicly accessible resources on ukpetpassport.com per RFC 9727.",
+  "linkset": [
+    {
+      "anchor": "https://ukpetpassport.com/",
+      "service-desc": [{ "href": "https://ukpetpassport.com/llms.txt", "type": "text/plain", "title": "LLM Hint File" }],
+      "service-doc": [{ "href": "https://ukpetpassport.com/AGENTS.md", "type": "text/markdown", "title": "Agent guidance for this site" }],
+      "status": [{ "href": "https://ukpetpassport.com/", "type": "text/html", "title": "Homepage (status check)" }],
+      "sitemap": [{ "href": "https://ukpetpassport.com/sitemap.xml", "type": "application/xml", "title": "XML Sitemap" }],
+      "llms-txt": [{ "href": "https://ukpetpassport.com/llms.txt", "type": "text/plain", "title": "llms.txt hint file" }],
+      "blog": [{ "href": "https://blog.ukpetpassport.com/", "type": "text/html", "title": "UK Pet Passport Blog" }]
+    },
+    {
+      "anchor": "https://blog.ukpetpassport.com/",
+      "service-doc": [{ "href": "https://blog.ukpetpassport.com/", "type": "text/html", "title": "Blog index" }],
+      "sitemap": [{ "href": "https://blog.ukpetpassport.com/sitemap-index.xml", "type": "application/xml", "title": "Blog sitemap" }]
+    }
+  ]
+}
