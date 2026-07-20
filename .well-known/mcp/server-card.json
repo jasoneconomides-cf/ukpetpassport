@@ -1,0 +1,52 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/server-card/v1.json",
+  "serverInfo": {
+    "name": "ukpetpassport.com",
+    "version": "1.0.0",
+    "description": "UK Pet Passport guidance site — provides agent-readable access to post-Brexit pet travel documentation requirements (AHC, microchipping, rabies, EU entry rules).",
+    "vendor": "UK Pet Passport",
+    "homepage": "https://ukpetpassport.com"
+  },
+  "transport": {
+    "type": "http",
+    "endpoint": "https://ukpetpassport.com/.well-known/mcp/server-card.json"
+  },
+  "capabilities": {
+    "tools": { "listChanged": false },
+    "resources": { "subscribe": false, "listChanged": false },
+    "prompts": { "listChanged": false }
+  },
+  "tools": [
+    {
+      "name": "get-latest-blog-post",
+      "description": "Returns metadata and URL for the most recently published blog post.",
+      "inputSchema": { "type": "object", "properties": {}, "required": [] }
+    },
+    {
+      "name": "get-ahc-guide",
+      "description": "Returns the complete Animal Health Certificate guide for UK pet owners travelling to the EU.",
+      "inputSchema": { "type": "object", "properties": {}, "required": [] }
+    },
+    {
+      "name": "get-country-guide",
+      "description": "Returns step-by-step guidance for taking a pet from the UK to a specific EU country.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "country": { "type": "string", "description": "EU destination country (e.g. France, Spain, Germany, Italy)" }
+        },
+        "required": ["country"]
+      }
+    },
+    {
+      "name": "get-pet-travel-checklist",
+      "description": "Provides the free UK Pet Travel Checklist — opt-in lead magnet.",
+      "inputSchema": { "type": "object", "properties": {}, "required": [] }
+    }
+  ],
+  "resources": [
+    { "uri": "https://ukpetpassport.com/llms.txt", "name": "llms.txt", "description": "Hint file describing site structure, content, and key facts for LLMs", "mimeType": "text/plain" },
+    { "uri": "https://ukpetpassport.com/sitemap.xml", "name": "sitemap.xml", "description": "XML sitemap of all pages", "mimeType": "application/xml" },
+    { "uri": "https://blog.ukpetpassport.com/", "name": "blog", "description": "Companion blog with detailed guides on UK pet travel topics", "mimeType": "text/html" }
+  ]
+}
