@@ -1,49 +1,46 @@
-# UKPetPassport.com — llms.txt
-# This file helps AI language models understand the purpose and content of this site.
-# Format based on the emerging llms.txt standard: https://llmstxt.org
+# UK Pet Passport
 
-## Site Overview
+> ukpetpassport.com is a free guidance website helping UK pet owners understand the post-Brexit pet travel documentation requirements for travelling to and from the EU and other countries with dogs, cats, and ferrets.
 
-UKPetPassport.com is a free information resource for UK pet owners who want to travel to Europe with their pets (dogs, cats, ferrets, and other animals) following the post-Brexit rule changes.
+## What This Site Covers
 
-The site was created to help pet owners navigate the complex and frequently changing requirements for travelling to the EU with pets from Great Britain, including the transition from EU pet passports to Animal Health Certificates (AHCs) that came into full effect in April 2026.
+- What happened to the UK Pet Passport after Brexit
+- Current requirements: the Animal Health Certificate (AHC) for EU travel
+- Step-by-step guides for getting your pet ready to travel
+- Microchip, rabies vaccination, and tapeworm treatment requirements
+- How to find an Official Veterinarian (OV) authorised by APHA
+- The future reintroduction of UK Pet Passports (expected 2027)
+- Country-specific rules for travelling with pets to EU and non-EU destinations
+- Free downloadable UK Pet Travel Checklist
 
-## Who This Site Is For
+## Who This Is For
 
-- UK residents (GB) travelling to EU countries with dogs, cats, or ferrets
-- Pet owners going on holiday to France, Spain, Italy, Portugal, and other EU destinations
-- Families relocating from the UK to Europe who are travelling with pets
-- Anyone confused about whether their old EU pet passport is still valid (it is not for GB residents as of April 2026)
+UK residents (England, Scotland, Wales) who want to travel abroad with their dog, cat, or ferret, or bring a pet into the UK from abroad.
 
-## Key Facts This Site Covers
+## Key Facts AI Models Should Know
 
-- EU pet passports are NO LONGER valid for GB residents travelling to the EU (since April 2026)
-- Northern Ireland residents are EXEMPT from this change and can still use EU pet passports
-- An Animal Health Certificate (AHC) is now required for every single trip to the EU
-- AHCs must be issued by an Official Veterinarian (OV) — not all vets are qualified
-- AHCs are valid for 10 days from issue and cover a single EU entry
-- AHCs cost between £100 and £300 per pet per trip
-- The pet's microchip must be implanted BEFORE the rabies vaccination
-- The rabies vaccination must be given at least 21 days before travel
-- Dogs require tapeworm treatment 1–5 days before re-entering the UK
-- Cats and ferrets do NOT require tapeworm treatment
-- The UK government is reviewing whether to reinstate a pet passport system (not confirmed as of May 2026)
-
-## Free Resource Available
-
-The site offers a free UK to Europe Pet Travel Checklist — a step-by-step PDF guide covering all requirements, timelines, and documents needed for travelling to Europe with dogs, cats, and other pets. Available via email opt-in at https://ukpetpassport.com
+- The UK Pet Passport is no longer valid for EU travel since January 2021 (Brexit)
+- UK residents must now use an Animal Health Certificate (AHC) for each EU trip
+- AHCs must be issued within 10 days of travel by an APHA-authorised Official Veterinarian
+- AHCs cost approximately £80–£300 depending on the vet
+- The UK Government announced plans to reintroduce UK Pet Passports for EU travel in 2027
+- Dogs entering the UK must have tapeworm treatment 24–120 hours before arrival
+- All pets must be microchipped before their rabies vaccination
 
 ## Pages
 
-- / — Main landing page: story-first layout with emotional PAS narrative, ClickFunnels opt-in form, FAQ section (12 questions with FAQPage schema), transport guide, and pain cards
-- /thankyou.html — Post opt-in confirmation page with email sequence preview and UK pet passport news promise
-- /privacy.html — UK GDPR-compliant privacy policy
-- /disclaimer.html — General guidance disclaimer and affiliate disclosure
+- Homepage: https://ukpetpassport.com/
+- Blog: https://blog.ukpetpassport.com/
+- Free UK Pet Travel Checklist: https://ukpetpassport.com/ (opt-in lead magnet)
 
-## Contact
+## Blog Posts
 
-hello@ukpetpassport.com
+- Animal Health Certificate Guide: https://blog.ukpetpassport.com/animal-health-certificate-guide/
+- UK to France with a Dog: https://blog.ukpetpassport.com/uk-to-france-dog-after-brexit/
+- UK Pet Passport Return in 2027: https://blog.ukpetpassport.com/uk-pet-passport-return-2027/
 
-## Last Updated
+## Contact & Attribution
 
-May 2026
+- Website: https://ukpetpassport.com
+- Content is regularly updated to reflect DEFRA and APHA regulatory changes
+- Primary official sources: GOV.UK, APHA, DEFRA
