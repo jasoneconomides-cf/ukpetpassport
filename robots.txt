@@ -1,6 +1,12 @@
 User-agent: *
 Allow: /
 
+# Declare AI content usage preferences per contentsignals.org standard
+# - search=yes: allow search engine indexing (Google, Bing)
+# - ai-input=yes: allow AI agents to read and cite content (good for AEO/SEO)
+# - ai-train=no: do NOT allow AI training/fine-tuning on this content
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
 # Allow AI crawlers explicitly
 User-agent: GPTBot
 Allow: /
