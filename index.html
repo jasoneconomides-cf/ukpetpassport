@@ -393,6 +393,20 @@
   <!-- ClickFunnels SDK -->
   <script src="https://sdk.myclickfunnels.com/sdk.js"></script>
   <div id="cf-thank-you" data-cf-thank-you></div>
-
+  <!-- WebMCP — register site tools for AI agents browsing the page -->
+  <!-- See /.well-known/mcp/server-card.json for the corresponding MCP server card -->
+  <script>
+  (function() {
+    if (!('modelContext' in navigator)) return;
+    navigator.modelContext.provideContext({
+      tools: [
+        { name: 'get-latest-blog-post', description: 'Returns the URL of the most recently published blog post on blog.ukpetpassport.com.', inputSchema: { type: 'object', properties: {}, required: [] }, execute: async () => ({ content: [{ type: 'text', text: 'https://blog.ukpetpassport.com/' }] }) },
+        { name: 'get-ahc-guide', description: 'Returns the URL of the complete UK Animal Health Certificate guide.', inputSchema: { type: 'object', properties: {}, required: [] }, execute: async () => ({ content: [{ type: 'text', text: 'https://blog.ukpetpassport.com/animal-health-certificate-guide/' }] }) },
+        { name: 'get-country-guide', description: 'Returns the URL of a step-by-step guide for taking a pet from the UK to a specific EU country.', inputSchema: { type: 'object', properties: { country: { type: 'string', description: 'EU destination country (e.g. France, Spain, Germany, Italy)' } }, required: ['country'] }, execute: async (args) => { const slug = String(args.country || '').toLowerCase().trim(); if (slug === 'france') return { content: [{ type: 'text', text: 'https://blog.ukpetpassport.com/uk-to-france-dog-after-brexit/' }] }; return { content: [{ type: 'text', text: 'No guide available yet for ' + args.country + '. Blog: https://blog.ukpetpassport.com/' }] }; } },
+        { name: 'get-pet-travel-checklist', description: 'Returns the URL of the free UK Pet Travel Checklist (lead magnet).', inputSchema: { type: 'object', properties: {}, required: [] }, execute: async () => ({ content: [{ type: 'text', text: 'https://ukpetpassport.com/#optin-form' }] }) }
+      ]
+    });
+  })();
+  </script>
 </body>
 </html>
