@@ -1,20 +1,5 @@
 # /auth.md — Agent registration metadata for ukpetpassport.com
-# Per https://workos.com/auth-md and https://github.com/workos/auth.md
-# This site has no protected APIs or authentication requirements,
-# but publishes this metadata for agent discovery completeness.
-
-# Agent registration
-agent_registration:
-  enabled: false
-  registration_uri: ""
-  identity_types_supported: []
-  credential_types_supported: []
-
-# Authentication metadata
-authentication:
-  required: false
-  oauth_discovery: "https://ukpetpassport.com/.well-known/openid-configuration"
-  oauth_protected_resource: "https://ukpetpassport.com/.well-known/oauth-protected-resource"
+# Per https://workos.com/auth.md and https://github.com/workos/auth.md
 
 # Site info
 site:
@@ -22,6 +7,22 @@ site:
   url: "https://ukpetpassport.com"
   description: "Free guidance website for UK pet owners navigating post-Brexit pet travel documentation requirements."
   contact: "resources@connectingpieces.com"
+
+# Agent registration block (per workos/auth.md spec)
+# Required for Auth.md agent registration check
+agent_auth:
+  enabled: false
+  register_uri: ""
+  supported_identity_types: []
+  credential_types_supported: []
+  claim_uri: ""
+  revocation_uri: ""
+
+# Authentication metadata
+authentication:
+  required: false
+  oauth_discovery: "https://ukpetpassport.com/.well-known/openid-configuration"
+  oauth_protected_resource: "https://ukpetpassport.com/.well-known/oauth-protected-resource"
 
 # MCP and agent capabilities
 agent_capabilities:
