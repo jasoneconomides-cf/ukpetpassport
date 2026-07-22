@@ -1,0 +1,21 @@
+{
+  "issuer": "https://ukpetpassport.com",
+  "authorization_endpoint": "https://ukpetpassport.com/.well-known/oauth-authorize",
+  "token_endpoint": "https://ukpetpassport.com/.well-known/oauth-token",
+  "jwks_uri": "https://ukpetpassport.com/.well-known/jwks.json",
+  "response_types_supported": ["code"],
+  "grant_types_supported": ["authorization_code"],
+  "scopes_supported": ["read:content"],
+  "token_endpoint_auth_methods_supported": ["none"],
+  "service_documentation": "https://ukpetpassport.com/AGENTS.md",
+  "ui_locales_supported": ["en-GB"],
+  "op_policy_uri": "https://ukpetpassport.com/privacy",
+  "op_tos_uri": "https://ukpetpassport.com/terms",
+  "revocation_endpoint": "https://ukpetpassport.com/.well-known/oauth-revoke",
+  "introspection_endpoint": "https://ukpetpassport.com/.well-known/oauth-introspect",
+  "code_challenge_methods_supported": ["S256"],
+  "claims_parameter_supported": false,
+  "request_parameter_supported": false,
+  "request_uri_parameter_supported": false,
+  "require_request_uri_registration": false
+}

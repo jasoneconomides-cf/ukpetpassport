@@ -1,0 +1,41 @@
+{
+  "$schema": "https://agentskills.io/schemas/v0.2.0/index.json",
+  "version": "0.2.0",
+  "skills": [
+    {
+      "name": "read-latest-blog-post",
+      "type": "content-retrieval",
+      "description": "Returns metadata and URL for the most recently published blog post on blog.ukpetpassport.com.",
+      "url": "https://blog.ukpetpassport.com/",
+      "sha256": "placeholder-update-on-deploy"
+    },
+    {
+      "name": "get-ahc-guide",
+      "type": "content-retrieval",
+      "description": "Returns the complete UK Animal Health Certificate guide for EU pet travel after Brexit.",
+      "url": "https://blog.ukpetpassport.com/animal-health-certificate-guide/",
+      "sha256": "placeholder-update-on-deploy"
+    },
+    {
+      "name": "get-france-travel-guide",
+      "type": "content-retrieval",
+      "description": "Returns the step-by-step guide for taking a dog from the UK to France after Brexit.",
+      "url": "https://blog.ukpetpassport.com/uk-to-france-dog-after-brexit/",
+      "sha256": "placeholder-update-on-deploy"
+    },
+    {
+      "name": "get-2027-passport-info",
+      "type": "content-retrieval",
+      "description": "Returns the latest information about the planned return of UK Pet Passports in 2027.",
+      "url": "https://blog.ukpetpassport.com/uk-pet-passport-return-2027/",
+      "sha256": "placeholder-update-on-deploy"
+    },
+    {
+      "name": "get-checklist",
+      "type": "lead-generation",
+      "description": "Provides the free UK Pet Travel Checklist (lead magnet) for users planning pet travel.",
+      "url": "https://ukpetpassport.com/",
+      "sha256": "placeholder-update-on-deploy"
+    }
+  ]
+}
