@@ -1,7 +1,7 @@
 {
   "resource": "https://ukpetpassport.com",
   "authorization_servers": [
-    "https://ukpetpassport.com/.well-known/openid-configuration"
+    "https://ukpetpassport.com"
   ],
   "scopes_supported": ["read:content"],
   "bearer_methods_supported": ["header"],
