@@ -252,6 +252,21 @@ a:hover { color: var(--primary-dark); }
   transform: translateY(-1px);
 }
 
+.cta-btn:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+
+.form-message {
+  min-height: 1.4em;
+  margin: -4px 0 0;
+  color: var(--text-mid);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
 .form-note {
   font-size: 0.8rem;
   color: var(--text-light);
