@@ -1,0 +1,14 @@
+{
+  "name": "ukpetpassport",
+  "private": true,
+  "scripts": {
+    "check": "wrangler deploy --dry-run"
+  },
+  "dependencies": {
+    "linkedom": "^0.18.12",
+    "turndown": "^7.2.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.45.0"
+  }
+}
