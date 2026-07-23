@@ -75,6 +75,15 @@
     footer a{color:#a78bfa;text-decoration:none;}
     footer p{margin-bottom:5px;}
   </style>
+  <script>
+    if (window.location.pathname === '/thankyou') {
+      window.history.replaceState(
+        null,
+        '',
+        '/thankyou.html' + window.location.search + window.location.hash
+      );
+    }
+  </script>
   <script src="https://sdk.myclickfunnels.com/sdk.js"></script>
 </head>
 <body>
