@@ -185,42 +185,6 @@
     }
   }
   </script>
-  <!-- GetResponse Analytics -->
-  <script type="text/javascript">
-  (function(m, o, n, t, e, r, _){
-          m['__GetResponseAnalyticsObject'] = e;m[e] = m[e] || function() {(m[e].q = m[e].q || []).push(arguments)};
-          r = o.createElement(n);_ = o.getElementsByTagName(n)[0];r.async = 1;r.src = t;r.setAttribute('crossorigin', 'use-credentials');_.parentNode.insertBefore(r, _);
-      })(window, document, 'script', 'https://an.gr-wcon.com/script/8eee50b6-41a4-4f9f-8a6b-7ecba840ec77/ga.js', 'GrTracking');
-  </script>
-
-  <!-- GetResponse: force button full width and single line -->
-  <style>
-    getresponse-form {
-      display: block !important;
-      width: 100% !important;
-    }
-    .optin-card {
-      padding: 24px 16px !important;
-    }
-    getresponse-form,
-    getresponse-form > * {
-      min-width: 0 !important;
-      width: 100% !important;
-    }
-  </style>
-  <script>
-    function fixGRButton() {
-      var gr = document.querySelector('getresponse-form');
-      if (!gr || !gr.shadowRoot) return;
-      var btn = gr.shadowRoot.querySelector('button') || gr.shadowRoot.querySelector('[type="submit"]') || gr.shadowRoot.querySelector('.gr-form__submit');
-      if (btn) {
-        btn.style.cssText += ';white-space:nowrap!important;width:100%!important;min-width:200px!important;padding:14px 20px!important;';
-      } else {
-        setTimeout(fixGRButton, 300);
-      }
-    }
-    document.addEventListener('DOMContentLoaded', function() { setTimeout(fixGRButton, 500); });
-  </script>
 </head>
 <body>
 
@@ -316,8 +280,39 @@
               <h3>Send Me the Free Checklist</h3>
               <p class="optin-sub">Instant access — enter your details below</p>
             </div>
-            <!-- GetResponse Opt-in Form -->
-            <getresponse-form data-cf-form data-cf-source="ukpetpassport.com" data-cf-thank-you="#cf-thank-you" form-id="95240ca8-c399-4e22-a484-df577cd03cdd" e="1"></getresponse-form>
+            <form class="optin-form" id="pet-travel-checklist-form">
+              <div class="form-group">
+                <label for="optin-first-name">First name</label>
+                <input
+                  id="optin-first-name"
+                  data-cf-element="first-name"
+                  type="text"
+                  autocomplete="given-name"
+                  placeholder="Your first name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="optin-email">Email address</label>
+                <input
+                  id="optin-email"
+                  data-cf-element="email"
+                  type="email"
+                  inputmode="email"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+              <button class="cta-btn" type="submit">
+                Send Me the Free Checklist
+              </button>
+              <p class="form-message" id="optin-form-message" aria-live="polite"></p>
+              <p class="form-note">
+                We’ll email you the checklist. Unsubscribe at any time.
+                See our <a href="/privacy.html">Privacy Policy</a>.
+              </p>
+            </form>
           </div>
         </div>
       </div>
@@ -392,7 +387,33 @@
 
   <!-- ClickFunnels SDK -->
   <script src="https://sdk.myclickfunnels.com/sdk.js"></script>
-  <div id="cf-thank-you" data-cf-thank-you></div>
+  <script>
+  (function() {
+    var form = document.getElementById('pet-travel-checklist-form');
+    var button = form && form.querySelector('button[type="submit"]');
+    var message = document.getElementById('optin-form-message');
+
+    if (!form || !button || !message) return;
+
+    form.addEventListener('submit', function(event) {
+      if (form.dataset.cfSdkEnhanced !== 'true') {
+        event.preventDefault();
+        message.textContent = 'The form is still loading. Please wait a moment and try again.';
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      message.textContent = 'Submitting your details securely…';
+    });
+
+    window.setTimeout(function() {
+      if (form.dataset.cfSdkEnhanced !== 'true') {
+        message.textContent = 'The form could not connect. Please refresh the page and try again.';
+      }
+    }, 10000);
+  })();
+  </script>
   <!-- WebMCP — register site tools for AI agents browsing the page -->
   <!-- See /.well-known/mcp/server-card.json for the corresponding MCP server card -->
   <script>
