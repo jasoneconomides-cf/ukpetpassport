@@ -1,0 +1,43 @@
+{
+  "issuer": "https://ukpetpassport.com",
+  "authorization_endpoint": "https://ukpetpassport.com/.well-known/oauth-authorize",
+  "token_endpoint": "https://ukpetpassport.com/.well-known/oauth-token",
+  "jwks_uri": "https://ukpetpassport.com/.well-known/jwks.json",
+  "registration_endpoint": "https://ukpetpassport.com/.well-known/oauth-register",
+  "scopes_supported": ["read:content"],
+  "response_types_supported": ["code"],
+  "grant_types_supported": ["authorization_code", "client_credentials"],
+  "token_endpoint_auth_methods_supported": ["none"],
+  "service_documentation": "https://ukpetpassport.com/AGENTS.md",
+  "ui_locales_supported": ["en-GB"],
+  "op_policy_uri": "https://ukpetpassport.com/privacy",
+  "op_tos_uri": "https://ukpetpassport.com/terms",
+  "revocation_endpoint": "https://ukpetpassport.com/.well-known/oauth-revoke",
+  "introspection_endpoint": "https://ukpetpassport.com/.well-known/oauth-introspect",
+  "code_challenge_methods_supported": ["S256"],
+  "claims_parameter_supported": false,
+  "request_parameter_supported": false,
+  "request_uri_parameter_supported": false,
+  "require_request_uri_registration": false,
+  "agent_auth": {
+    "skill": "https://ukpetpassport.com/auth.md",
+    "register_uri": "https://ukpetpassport.com/.well-known/oauth-register",
+    "claim_uri": "https://ukpetpassport.com/.well-known/oauth-claim",
+    "claim_complete_uri": "https://ukpetpassport.com/.well-known/oauth-claim-complete",
+    "revocation_uri": "https://ukpetpassport.com/.well-known/oauth-revoke",
+    "identity_types_supported": ["anonymous", "identity_assertion"],
+    "anonymous": {
+      "credential_types_supported": ["api_key"]
+    },
+    "identity_assertion": {
+      "assertion_types_supported": [
+        "urn:ietf:params:oauth:token-type:id-jag",
+        "verified_email"
+      ],
+      "credential_types_supported": ["access_token", "api_key"]
+    },
+    "events_supported": [
+      "https://schemas.workos.com/events/agent/auth/identity/assertion/revoked"
+    ]
+  }
+}
