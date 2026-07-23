@@ -280,7 +280,11 @@
               <h3>Send Me the Free Checklist</h3>
               <p class="optin-sub">Instant access — enter your details below</p>
             </div>
-            <form class="optin-form" id="pet-travel-checklist-form">
+            <form
+              class="optin-form"
+              id="pet-travel-checklist-form"
+              target="clickfunnels-submit-frame"
+            >
               <div class="form-group">
                 <label for="optin-first-name">First name</label>
                 <input
@@ -313,6 +317,12 @@
                 See our <a href="/privacy.html">Privacy Policy</a>.
               </p>
             </form>
+            <iframe
+              name="clickfunnels-submit-frame"
+              id="clickfunnels-submit-frame"
+              title="ClickFunnels form submission"
+              hidden
+            ></iframe>
           </div>
         </div>
       </div>
@@ -392,8 +402,10 @@
     var form = document.getElementById('pet-travel-checklist-form');
     var button = form && form.querySelector('button[type="submit"]');
     var message = document.getElementById('optin-form-message');
+    var submitFrame = document.getElementById('clickfunnels-submit-frame');
+    var submissionStarted = false;
 
-    if (!form || !button || !message) return;
+    if (!form || !button || !message || !submitFrame) return;
 
     form.addEventListener('submit', function(event) {
       if (form.dataset.cfSdkEnhanced !== 'true') {
@@ -402,9 +414,16 @@
         return;
       }
 
+      submissionStarted = true;
       button.disabled = true;
       button.textContent = 'Sending…';
       message.textContent = 'Submitting your details securely…';
+    });
+
+    submitFrame.addEventListener('load', function() {
+      if (submissionStarted) {
+        window.location.assign('/thankyou.html');
+      }
     });
 
     window.setTimeout(function() {
