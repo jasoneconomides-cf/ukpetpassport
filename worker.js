@@ -33,7 +33,12 @@ function htmlToMarkdown(html) {
 
 export default {
   async fetch(request, env) {
-    const response = await env.ASSETS.fetch(request);
+    const url = new URL(request.url);
+    const assetRequest =
+      url.pathname === "/"
+        ? new Request(new URL(`/index.html${url.search}`, url), request)
+        : request;
+    const response = await env.ASSETS.fetch(assetRequest);
     const acceptsMarkdown = MARKDOWN_ACCEPT.test(
       request.headers.get("Accept") || "",
     );
