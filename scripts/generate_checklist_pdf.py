@@ -19,6 +19,10 @@ from reportlab.platypus import (
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "public" / "checklist.pdf"
+SITE_URL = "https://ukpetpassport.com/"
+CHECKLIST_URL = "https://ukpetpassport.com/checklist.pdf"
+DISCLAIMER_URL = "https://ukpetpassport.com/disclaimer.html"
+BLOG_URL = "https://blog.ukpetpassport.com/"
 
 BRAND_GREEN = colors.HexColor("#20594C")
 BRAND_BLUE = colors.HexColor("#EAF3F5")
@@ -37,12 +41,15 @@ def on_page(canvas, doc):
     canvas.setFont("Helvetica-Bold", 9)
     canvas.drawString(18 * mm, height - 9.5 * mm, "UK Pet Passport")
     canvas.setFont("Helvetica", 8)
-    canvas.drawRightString(width - 18 * mm, height - 9.5 * mm, "Pet Travel Checklist - Updated July 2026")
+    canvas.drawRightString(width - 18 * mm, height - 9.5 * mm, "ukpetpassport.com - Updated July 2026")
+    canvas.linkURL(SITE_URL, (18 * mm, height - 13 * mm, 60 * mm, height - 5 * mm), relative=0)
+    canvas.linkURL(SITE_URL, (width - 62 * mm, height - 13 * mm, width - 18 * mm, height - 5 * mm), relative=0)
     canvas.setStrokeColor(BRAND_RULE)
     canvas.line(18 * mm, 17 * mm, width - 18 * mm, 17 * mm)
     canvas.setFillColor(BRAND_MUTED)
     canvas.setFont("Helvetica", 7.5)
-    canvas.drawString(18 * mm, 11 * mm, "General guidance only. Always check GOV.UK and your destination country's official rules before travel.")
+    canvas.drawString(18 * mm, 11 * mm, "More pet travel updates: ukpetpassport.com")
+    canvas.linkURL(SITE_URL, (48 * mm, 8 * mm, 88 * mm, 14 * mm), relative=0)
     canvas.drawRightString(width - 18 * mm, 11 * mm, f"Page {doc.page}")
     canvas.restoreState()
 
@@ -71,6 +78,18 @@ def styles():
             textColor=BRAND_MUTED,
             alignment=TA_CENTER,
             spaceAfter=12,
+        )
+    )
+    base.add(
+        ParagraphStyle(
+            "BrandLine",
+            parent=base["BodyText"],
+            fontName="Helvetica-Bold",
+            fontSize=10,
+            leading=13,
+            textColor=BRAND_GREEN,
+            alignment=TA_CENTER,
+            spaceAfter=10,
         )
     )
     base.add(
@@ -105,6 +124,17 @@ def styles():
             leading=10.5,
             textColor=BRAND_MUTED,
             spaceAfter=4,
+        )
+    )
+    base.add(
+        ParagraphStyle(
+            "Friendly",
+            parent=base["BodyText"],
+            fontName="Helvetica",
+            fontSize=9.3,
+            leading=12.6,
+            textColor=BRAND_MUTED,
+            spaceAfter=6,
         )
     )
     base.add(
@@ -193,26 +223,67 @@ def callout(text):
     return table
 
 
+def blue_box(text):
+    table = Table([[p(text, "Body")]], colWidths=[165 * mm])
+    table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, -1), BRAND_BLUE),
+                ("BOX", (0, 0), (-1, -1), 0.4, BRAND_RULE),
+                ("LEFTPADDING", (0, 0), (-1, -1), 8),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 8),
+                ("TOPPADDING", (0, 0), (-1, -1), 7),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+            ]
+        )
+    )
+    return table
+
+
 def build_story():
     story = []
     story.append(p("UK to Europe Pet Travel Checklist", "TitleMain"))
     story.append(
         p(
-            "For dogs, cats and ferrets travelling from Great Britain to the EU. "
-            "Fully refreshed against GOV.UK guidance and April 2026 EU rule updates.",
+            f'<a href="{SITE_URL}" color="#20594C">ukpetpassport.com</a>',
+            "BrandLine",
+        )
+    )
+    story.append(
+        p(
+            "A friendly, plain-English checklist for dogs, cats and ferrets travelling from Great Britain to the EU. "
+            "Built for real pet owners who would rather be packing treats than decoding border paperwork.",
             "Subtitle",
         )
     )
     story.append(
+        blue_box(
+            f"<b>Keep the latest version:</b> Rules can change. If this PDF has been forwarded to you, "
+            f"get the current checklist and pet travel updates at "
+            f'<a href="{SITE_URL}" color="#20594C">ukpetpassport.com</a>. '
+            f"Full disclaimer: "
+            f'<a href="{DISCLAIMER_URL}" color="#20594C">ukpetpassport.com/disclaimer.html</a>.'
+        )
+    )
+    story.append(Spacer(1, 8))
+    story.append(
         callout(
             "<b>Core rule:</b> GB residents should get an Animal Health Certificate "
             "(AHC) for each trip from Great Britain to the EU. One AHC can include "
-            "up to five pets, so costs are not automatically charged per pet."
+            "up to five pets, so costs are not automatically charged per pet. "
+            "Good news for households with more than one travel buddy."
         )
     )
     story.append(Spacer(1, 8))
 
     story.append(p("Key Facts", "Section"))
+    story.append(
+        p(
+            "Think of this as your calm pre-trip once-over. Not a substitute for your Official Veterinarian, "
+            "but a useful way to catch the boring-but-important details before your pet is staring at you from the carrier.",
+            "Friendly",
+        )
+    )
     for item in [
         "An AHC can include up to five pets.",
         "A new AHC is needed for each trip from Great Britain to an EU country.",
@@ -247,7 +318,7 @@ def build_story():
                 (
                     "Timing",
                     "Plan backwards from your EU entry date and return-to-GB date.",
-                    "Rabies timing, AHC timing and dog tapeworm timing are separate checks.",
+                    "Rabies timing, AHC timing and dog tapeworm timing are separate checks. Future-you will be grateful.",
                 ),
             ]
         )
@@ -255,6 +326,13 @@ def build_story():
 
     story.append(PageBreak())
     story.append(p("Vet and Document Checks", "Section"))
+    story.append(
+        p(
+            "This is the part where tiny numbers matter. Microchip numbers are not exciting reading, "
+            "but they are very good at ruining a travel day if copied incorrectly.",
+            "Friendly",
+        )
+    )
     story.append(
         checklist_table(
             [
@@ -303,6 +381,13 @@ def build_story():
 
     story.append(p("Returning to Great Britain", "Section"))
     story.append(
+        p(
+            "Coming home has its own checks, especially for dogs. Build this into the trip plan before everyone is tired, sandy, "
+            "and wondering where the nearest vet is.",
+            "Friendly",
+        )
+    )
+    story.append(
         checklist_table(
             [
                 (
@@ -330,6 +415,16 @@ def build_story():
     )
 
     story.append(PageBreak())
+    story.append(
+        blue_box(
+            f"<b>Found this months later?</b> Please do not rely on an old copy. "
+            f"Download the latest version at "
+            f'<a href="{CHECKLIST_URL}" color="#20594C">ukpetpassport.com/checklist.pdf</a> '
+            f"and read the latest guidance at "
+            f'<a href="{BLOG_URL}" color="#20594C">blog.ukpetpassport.com</a>.'
+        )
+    )
+    story.append(Spacer(1, 8))
     story.append(p("What Changed From Older Advice", "Section"))
     for item in [
         "Do not treat AHC cost as automatically per pet. One AHC can cover up to five pets.",
@@ -378,14 +473,23 @@ def build_story():
         ),
     ]
     for name, url in refs:
-        story.append(bullet(f"<b>{name}</b><br/>{url}"))
+        story.append(bullet(f'<b>{name}</b><br/><a href="{url}" color="#20594C">{url}</a>'))
 
-    story.append(p("Disclaimer", "Section"))
+    story.append(p("Important Disclaimer", "Section"))
     story.append(
         p(
-            "This checklist provides general information for UK pet owners and is not veterinary, legal or border-control advice. "
-            "Rules can change, and destination countries and carriers may apply extra requirements. Always check official guidance "
-            "and speak to an Official Veterinarian before travel.",
+            "This checklist is general information for UK pet owners. It is not veterinary, legal or border-control advice, "
+            "and it does not replace GOV.UK, your destination country's official rules, your carrier's requirements, "
+            "or advice from an Official Veterinarian. Rules can change, and individual journeys can have extra requirements. "
+            f"Please read the full disclaimer at "
+            f'<a href="{DISCLAIMER_URL}" color="#20594C">ukpetpassport.com/disclaimer.html</a> before relying on this checklist.',
+            "Small",
+        )
+    )
+    story.append(
+        p(
+            f"Created by UK Pet Passport for fellow pet owners. Latest checklist: "
+            f'<a href="{CHECKLIST_URL}" color="#20594C">ukpetpassport.com/checklist.pdf</a>.',
             "Small",
         )
     )
