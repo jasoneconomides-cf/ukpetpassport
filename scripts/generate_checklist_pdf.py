@@ -435,7 +435,7 @@ def build_story():
         )
     )
 
-    story.append(p("Official Sources Checked", "Section"))
+    story.append(p("Official Sources and References", "Section"))
     refs = [
         (
             "GOV.UK - Taking your pet dog, cat or ferret abroad",
