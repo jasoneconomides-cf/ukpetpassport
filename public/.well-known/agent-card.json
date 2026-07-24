@@ -1,0 +1,66 @@
+{
+  "name": "UK Pet Passport Guidance",
+  "description": "Free guidance for UK pet owners tracking current post-Brexit pet travel rules, Animal Health Certificate requirements, and official GOV.UK source updates.",
+  "provider": {
+    "organization": "UK Pet Passport",
+    "url": "https://ukpetpassport.com/"
+  },
+  "version": "1.0.0",
+  "documentationUrl": "https://ukpetpassport.com/AGENTS.md",
+  "supportedInterfaces": [
+    {
+      "url": "https://ukpetpassport.com/.well-known/api-catalog",
+      "protocolBinding": "HTTP+JSON",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false,
+    "extendedAgentCard": false
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/html",
+    "text/markdown",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "pet-travel-guidance",
+      "name": "Pet travel guidance",
+      "description": "Helps agents locate public guidance about UK pet travel rules, Animal Health Certificates, microchips, rabies vaccination, tapeworm treatment, and return-to-GB requirements.",
+      "tags": [
+        "pet-travel",
+        "animal-health-certificate",
+        "govuk",
+        "uk",
+        "eu-travel"
+      ],
+      "examples": [
+        "Find the current Animal Health Certificate guide.",
+        "Find UK-to-EU pet travel checklist guidance.",
+        "Find official-source notes for taking a dog, cat, or ferret abroad."
+      ]
+    },
+    {
+      "id": "blog-content-discovery",
+      "name": "Blog content discovery",
+      "description": "Helps agents discover blog articles and supporting public resources from the UK Pet Passport site and blog.",
+      "tags": [
+        "blog",
+        "content-discovery",
+        "seo",
+        "rss"
+      ],
+      "examples": [
+        "Find the latest UK Pet Passport blog posts.",
+        "Find the guide about taking a dog from the UK to France after Brexit.",
+        "Find the article about the planned UK Pet Passport return."
+      ]
+    }
+  ]
+}
