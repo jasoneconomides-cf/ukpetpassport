@@ -15,7 +15,7 @@ This is the UK Pet Passport main site (ukpetpassport.com), a free guidance websi
 
 ## Key Files
 
-- `index.html` — Main landing page (lead capture)
+- `index.html` — Main landing page and checklist opt-in
 - `llms.txt` — AI agent hint file (site structure, content)
 - `robots.txt` — Crawler rules (includes AI bot allow-list)
 - `sitemap.xml` — XML sitemap

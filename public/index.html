@@ -197,7 +197,7 @@
     function declineCookies(){localStorage.setItem('cookieConsent','declined');document.getElementById('cookie-banner').style.display='none';}
   </script>
 
-  <div class="top-bar">🐾 UK Pet Passport &nbsp;|&nbsp; Updated May 2026</div>
+  <div class="top-bar">🐾 UK Pet Passport &nbsp;|&nbsp; Updated July 2026</div>
 
   <section class="story-hero">
     <div class="story-hero-bg"></div>
@@ -207,7 +207,7 @@
       <h1>They'd Cancel the Holiday Before They'd Leave <em>Without Their Pet.</em></h1>
       <p class="hero-sub">If you're reading this, your dog or cat isn't an afterthought — they're the whole reason you're researching ferry timetables at midnight. This page is for you.</p>
       <div class="trust-pills">
-        <span class="trust-pill">✅ Updated May 2026</span>
+        <span class="trust-pill">✅ Updated July 2026</span>
         <span class="trust-pill">✅ UK-based guidance</span>
         <span class="trust-pill">✅ Dogs, cats &amp; ferrets</span>
       </div>
@@ -223,7 +223,7 @@
           <span style="font-size:1.6rem;">📋</span>
           <div>
             <p style="margin:0;font-size:0.88rem;font-weight:700;color:#166534;">Based on official sources</p>
-            <p style="margin:0;font-size:0.82rem;color:#15803d;">Information sourced from <a href="https://www.gov.uk/take-pet-abroad" target="_blank" rel="noopener" style="color:#15803d;font-weight:600;">GOV.UK</a> and APHA. <strong>Last updated: May 2026.</strong></p>
+            <p style="margin:0;font-size:0.82rem;color:#15803d;">Information sourced from <a href="https://www.gov.uk/take-pet-abroad" target="_blank" rel="noopener" style="color:#15803d;font-weight:600;">GOV.UK</a> and APHA. <strong>Last updated: July 2026.</strong></p>
           </div>
         </div>
         <p>You've got a trip to Europe on the cards. Maybe it's booked. Maybe it's still a dream. Either way, before you've looked at routes, the first question — the <em>only</em> question — is: <strong>"Can we bring them?"</strong></p>
@@ -438,7 +438,7 @@
         { name: 'get-latest-blog-post', description: 'Returns the URL of the most recently published blog post on blog.ukpetpassport.com.', inputSchema: { type: 'object', properties: {}, required: [] }, execute: async () => ({ content: [{ type: 'text', text: 'https://blog.ukpetpassport.com/' }] }) },
         { name: 'get-ahc-guide', description: 'Returns the URL of the complete UK Animal Health Certificate guide.', inputSchema: { type: 'object', properties: {}, required: [] }, execute: async () => ({ content: [{ type: 'text', text: 'https://blog.ukpetpassport.com/animal-health-certificate-guide/' }] }) },
         { name: 'get-country-guide', description: 'Returns the URL of a step-by-step guide for taking a pet from the UK to a specific EU country.', inputSchema: { type: 'object', properties: { country: { type: 'string', description: 'EU destination country (e.g. France, Spain, Germany, Italy)' } }, required: ['country'] }, execute: async (args) => { const slug = String(args.country || '').toLowerCase().trim(); if (slug === 'france') return { content: [{ type: 'text', text: 'https://blog.ukpetpassport.com/uk-to-france-dog-after-brexit/' }] }; return { content: [{ type: 'text', text: 'No guide available yet for ' + args.country + '. Blog: https://blog.ukpetpassport.com/' }] }; } },
-        { name: 'get-pet-travel-checklist', description: 'Returns the URL of the free UK Pet Travel Checklist (lead magnet).', inputSchema: { type: 'object', properties: {}, required: [] }, execute: async () => ({ content: [{ type: 'text', text: 'https://ukpetpassport.com/#optin-form' }] }) }
+        { name: 'get-pet-travel-checklist', description: 'Returns the URL of the free UK Pet Travel Checklist email sign-up.', inputSchema: { type: 'object', properties: {}, required: [] }, execute: async () => ({ content: [{ type: 'text', text: 'https://ukpetpassport.com/#optin-form' }] }) }
       ]
     });
   })();
