@@ -425,16 +425,6 @@ def build_story():
         )
     )
     story.append(Spacer(1, 8))
-    story.append(p("What Changed From Older Advice", "Section"))
-    for item in [
-        "Do not treat AHC cost as automatically per pet. One AHC can cover up to five pets.",
-        "Do not describe an AHC as simply valid for 10 days. The 10 days are for EU entry; later validity can cover onward EU travel and re-entry to Great Britain for up to 6 months.",
-        "Do not say every normal vet is unable to issue an AHC. A normal vet can issue one if they are an Official Veterinarian.",
-        "Do not say every typo automatically means quarantine. Paperwork errors can cause delays, refusal or other problems, so details should be checked carefully.",
-        "Do not use old GB-resident EU pet passport assumptions. GOV.UK says GB residents should get an AHC for travel from GB to the EU.",
-    ]:
-        story.append(bullet(item))
-
     story.append(p("Cost Notes", "Section"))
     story.append(
         p(
