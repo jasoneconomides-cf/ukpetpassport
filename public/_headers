@@ -4,9 +4,9 @@
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
 
-  # Agent discovery — Link headers per RFC 8288 (item 1 from isitagentready.com)
-  # Points AI agents to key resources for discovery and content negotiation
-  Link: </llms.txt>; rel="llms-txt", </sitemap.xml>; rel="sitemap", </AGENTS.md>; rel="agent-instructions", <https://blog.ukpetpassport.com/>; rel="blog", </.well-known/api-catalog>; rel="api-catalog", </.well-known/agent-skills/index.json>; rel="agent-skills", </.well-known/mcp/server-card.json>; rel="mcp-server-card"
+  # Agent discovery — Link headers per RFC 8288 and RFC 9727
+  # Worker also injects these on homepage responses because run_worker_first is enabled.
+  Link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json", </auth.md>; rel="service-doc"; type="text/markdown", </.well-known/agent-card.json>; rel="describedby"; type="application/json", </.well-known/agent-skills/index.json>; rel="describedby"; type="application/json", </llms.txt>; rel="describedby"; type="text/plain"
   Vary: Accept
 
 /.well-known/*

@@ -2,6 +2,14 @@ import TurndownService from "turndown";
 import { parseHTML } from "linkedom";
 
 const MARKDOWN_ACCEPT = /(?:^|,)\s*text\/markdown(?:\s*;[^,]*)?(?:,|$)/i;
+const HOMEPAGE_LINK_HEADER = [
+  '</.well-known/api-catalog>; rel="api-catalog"',
+  '</.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json"',
+  '</auth.md>; rel="service-doc"; type="text/markdown"',
+  '</.well-known/agent-card.json>; rel="describedby"; type="application/json"',
+  '</.well-known/agent-skills/index.json>; rel="describedby"; type="application/json"',
+  '</llms.txt>; rel="describedby"; type="text/plain"',
+].join(", ");
 
 function appendVary(headers, value) {
   const values = new Set(
@@ -16,6 +24,20 @@ function appendVary(headers, value) {
 
 function estimateTokens(text) {
   return Math.max(1, Math.ceil(text.length / 4));
+}
+
+function isHomepage(url) {
+  return url.pathname === "/" || url.pathname === "/index.html";
+}
+
+function addHomepageHeaders(headers, url) {
+  if (!isHomepage(url)) return;
+
+  headers.set("Link", HOMEPAGE_LINK_HEADER);
+  headers.set("X-Content-Type-Options", "nosniff");
+  headers.set("X-Frame-Options", "DENY");
+  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  appendVary(headers, "Accept");
 }
 
 function htmlToMarkdown(html) {
@@ -34,20 +56,34 @@ function htmlToMarkdown(html) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    const assetRequest =
-      url.pathname === "/"
-        ? new Request(new URL(`/index.html${url.search}`, url), request)
-        : request;
-    const response = await env.ASSETS.fetch(assetRequest);
     const acceptsMarkdown = MARKDOWN_ACCEPT.test(
       request.headers.get("Accept") || "",
     );
+    const assetUrl =
+      url.pathname === "/"
+        ? new URL(`/index.html${url.search}`, url)
+        : url;
+    const assetRequest =
+      acceptsMarkdown && request.method === "HEAD"
+        ? new Request(assetUrl, {
+            headers: request.headers,
+            method: "GET",
+          })
+        : new Request(assetUrl, request);
+    const response = await env.ASSETS.fetch(assetRequest);
     const isHtml = (
       response.headers.get("Content-Type") || ""
     ).toLowerCase().includes("text/html");
 
     if (!acceptsMarkdown || !isHtml || !response.ok) {
-      return response;
+      const headers = new Headers(response.headers);
+      addHomepageHeaders(headers, url);
+
+      return new Response(request.method === "HEAD" ? null : response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers,
+      });
     }
 
     const html = await response.text();
@@ -64,6 +100,7 @@ export default {
     headers.delete("ETag");
     headers.delete("Last-Modified");
     headers.delete("Transfer-Encoding");
+    addHomepageHeaders(headers, url);
     appendVary(headers, "Accept");
 
     return new Response(request.method === "HEAD" ? null : markdown, {
