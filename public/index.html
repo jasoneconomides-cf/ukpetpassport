@@ -211,8 +211,8 @@
         <span class="trust-pill">✅ UK-based guidance</span>
         <span class="trust-pill">✅ Dogs, cats &amp; ferrets</span>
       </div>
-      <a href="#optin-form" class="hero-cta-btn">📋 Get the Free UK to Europe Pet Travel Checklist →</a>
-      <p class="hero-cta-note">Free — no spam — instant access</p>
+      <a href="#checklist" class="hero-cta-btn">📬 Join the Bulletin + Get the Free Checklist →</a>
+      <p class="hero-cta-note">Official-rule updates — no spam — unsubscribe any time</p>
     </div>
   </section>
 
@@ -252,12 +252,12 @@
     </div>
   </section>
 
-  <section class="mid-optin" id="optin-form">
-    <div class="container">
+  <section class="mid-optin" id="checklist">
+    <div class="container" id="optin-form">
       <div class="mid-optin-grid">
         <div class="mid-optin-left">
-          <h2>Get the Free <em>UK to Europe Pet Travel Checklist 2026</em></h2>
-          <p>Step-by-step PDF covering what dogs, cats, and ferrets need for EU travel.</p>
+          <h2>Waiting for <em>UK Pet Passports</em> to Return?</h2>
+          <p>Join the UK Pet Passport Bulletin for clear updates when official UK/EU pet-travel guidance changes. While you wait, we’ll send you our free pre-travel checklist.</p>
           <ul>
             <li>✅ AHC vs. old EU passport — which applies to YOU</li>
             <li>✅ Microchip rules that catch people out</li>
@@ -266,14 +266,14 @@
             <li>✅ What to bring to your OV appointment</li>
             <li>✅ What actually happens at the border</li>
           </ul>
-          <p class="fine">Free. No spam. Unsubscribe any time.</p>
+          <p class="fine">Free checklist. Occasional updates. No spam. Unsubscribe any time.</p>
         </div>
         <div>
           <div class="optin-card">
             <div class="optin-card-header">
               <div class="optin-icon">🐾</div>
-              <h3>Send Me the Free Checklist</h3>
-              <p class="optin-sub">Instant access — enter your details below</p>
+              <h3>Get the Checklist and Updates</h3>
+              <p class="optin-sub">Join the free bulletin and receive the checklist now</p>
             </div>
             <form
               class="optin-form"
@@ -304,11 +304,11 @@
                 />
               </div>
               <button class="cta-btn" type="submit">
-                Send Me the Free Checklist
+                Join the Bulletin + Get the Checklist
               </button>
               <p class="form-message" id="optin-form-message" aria-live="polite"></p>
               <p class="form-note">
-                We’ll email you the checklist. Unsubscribe at any time.
+                We’ll email your checklist and occasional UK pet-travel updates. Unsubscribe at any time.
                 See our <a href="/privacy.html">Privacy Policy</a>.
               </p>
             </form>
@@ -368,17 +368,17 @@
 
   <section class="cta-section">
     <div class="container">
-      <h2>Don't let paperwork ruin the trip</h2>
-      <p>Get the free checklist and know exactly what you need before you book anything.</p>
-      <a href="#optin-form" class="cta-btn-white">📋 Get the Free UK to Europe Pet Travel Checklist →</a>
-      <p class="cta-small">Free. Instant. Dogs, cats &amp; ferrets. Updated for 2026.</p>
+      <h2>Want to know when UK pet-passport rules change?</h2>
+      <p>Join the bulletin for official-rule updates and get the free pre-travel checklist to use in the meantime.</p>
+      <a href="#checklist" class="cta-btn-white">📬 Get the Checklist and Updates →</a>
+      <p class="cta-small">Free checklist. Occasional updates. Unsubscribe any time.</p>
     </div>
   </section>
 
   <section class="newsletter-section">
     <div class="container">
       <h3>🗓️ Waiting for UK Pet Passports to Return?</h3>
-      <p>The UK and EU are working towards a multi-use pet passport for EU travel, but the current AHC rules still apply until GOV.UK publishes a replacement process.</p>
+      <p>The UK and EU are working towards a multi-use pet passport, but the current AHC rules still apply. <a href="#checklist" style="color:#fbbf24;font-weight:700;">Join the bulletin</a> for updates when official guidance changes.</p>
     </div>
   </section>
 
@@ -438,7 +438,7 @@
         { name: 'get-latest-blog-post', description: 'Returns the URL of the most recently published blog post on blog.ukpetpassport.com.', inputSchema: { type: 'object', properties: {}, required: [] }, execute: async () => ({ content: [{ type: 'text', text: 'https://blog.ukpetpassport.com/' }] }) },
         { name: 'get-ahc-guide', description: 'Returns the URL of the complete UK Animal Health Certificate guide.', inputSchema: { type: 'object', properties: {}, required: [] }, execute: async () => ({ content: [{ type: 'text', text: 'https://blog.ukpetpassport.com/animal-health-certificate-guide/' }] }) },
         { name: 'get-country-guide', description: 'Returns the URL of a step-by-step guide for taking a pet from the UK to a specific EU country.', inputSchema: { type: 'object', properties: { country: { type: 'string', description: 'EU destination country (e.g. France, Spain, Germany, Italy)' } }, required: ['country'] }, execute: async (args) => { const slug = String(args.country || '').toLowerCase().trim(); if (slug === 'france') return { content: [{ type: 'text', text: 'https://blog.ukpetpassport.com/uk-to-france-dog-after-brexit/' }] }; return { content: [{ type: 'text', text: 'No guide available yet for ' + args.country + '. Blog: https://blog.ukpetpassport.com/' }] }; } },
-        { name: 'get-pet-travel-checklist', description: 'Returns the URL of the free UK Pet Travel Checklist email sign-up.', inputSchema: { type: 'object', properties: {}, required: [] }, execute: async () => ({ content: [{ type: 'text', text: 'https://ukpetpassport.com/#optin-form' }] }) }
+        { name: 'get-pet-travel-checklist', description: 'Returns the URL of the UK Pet Passport Bulletin and free pre-travel checklist sign-up.', inputSchema: { type: 'object', properties: {}, required: [] }, execute: async () => ({ content: [{ type: 'text', text: 'https://ukpetpassport.com/#checklist' }] }) }
       ]
     });
   })();
