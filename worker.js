@@ -30,6 +30,14 @@ function isHomepage(url) {
   return url.pathname === "/" || url.pathname === "/index.html";
 }
 
+function isNoindexAsset(url) {
+  return [
+    "/checklist-download",
+    "/checklist-download.html",
+    "/checklist.pdf",
+  ].includes(url.pathname);
+}
+
 function addHomepageHeaders(headers, url) {
   if (!isHomepage(url)) return;
 
@@ -38,6 +46,12 @@ function addHomepageHeaders(headers, url) {
   headers.set("X-Frame-Options", "DENY");
   headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
   appendVary(headers, "Accept");
+}
+
+function addNoindexHeaders(headers, url) {
+  if (!isNoindexAsset(url)) return;
+
+  headers.set("X-Robots-Tag", "noindex, nofollow");
 }
 
 function htmlToMarkdown(html) {
@@ -62,6 +76,8 @@ export default {
     const assetUrl =
       url.pathname === "/"
         ? new URL(`/index.html${url.search}`, url)
+        : url.pathname === "/checklist-download"
+          ? new URL(`/checklist-download.html${url.search}`, url)
         : url;
     const assetRequest =
       acceptsMarkdown && request.method === "HEAD"
@@ -78,6 +94,7 @@ export default {
     if (!acceptsMarkdown || !isHtml || !response.ok) {
       const headers = new Headers(response.headers);
       addHomepageHeaders(headers, url);
+      addNoindexHeaders(headers, url);
 
       return new Response(request.method === "HEAD" ? null : response.body, {
         status: response.status,
@@ -101,6 +118,7 @@ export default {
     headers.delete("Last-Modified");
     headers.delete("Transfer-Encoding");
     addHomepageHeaders(headers, url);
+    addNoindexHeaders(headers, url);
     appendVary(headers, "Accept");
 
     return new Response(request.method === "HEAD" ? null : markdown, {

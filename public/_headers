@@ -11,3 +11,9 @@
 
 /.well-known/*
   Content-Type: application/json
+
+/checklist-download.html
+  X-Robots-Tag: noindex, nofollow
+
+/checklist.pdf
+  X-Robots-Tag: noindex, nofollow
