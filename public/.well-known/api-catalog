@@ -10,6 +10,7 @@
       "status": [{ "href": "https://ukpetpassport.com/", "type": "text/html", "title": "Homepage (status check)" }],
       "sitemap": [{ "href": "https://ukpetpassport.com/sitemap.xml", "type": "application/xml", "title": "XML Sitemap" }],
       "llms-txt": [{ "href": "https://ukpetpassport.com/llms.txt", "type": "text/plain", "title": "llms.txt hint file" }],
+      "ai-catalog": [{ "href": "https://ukpetpassport.com/.well-known/ai-catalog.json", "type": "application/json", "title": "ARD capability manifest" }],
       "blog": [{ "href": "https://blog.ukpetpassport.com/", "type": "text/html", "title": "UK Pet Passport Blog" }]
     },
     {

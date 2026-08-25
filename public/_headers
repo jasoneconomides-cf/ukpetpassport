@@ -6,7 +6,7 @@
 
   # Agent discovery — Link headers per RFC 8288 and RFC 9727
   # Worker also injects these on homepage responses because run_worker_first is enabled.
-  Link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json", </auth.md>; rel="service-doc"; type="text/markdown", </.well-known/agent-card.json>; rel="describedby"; type="application/json", </.well-known/agent-skills/index.json>; rel="describedby"; type="application/json", </llms.txt>; rel="describedby"; type="text/plain"
+  Link: </.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/json", </.well-known/api-catalog>; rel="api-catalog", </.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json", </auth.md>; rel="service-doc"; type="text/markdown", </.well-known/agent-card.json>; rel="describedby"; type="application/json", </.well-known/agent-skills/index.json>; rel="describedby"; type="application/json", </llms.txt>; rel="describedby"; type="text/plain"
   Vary: Accept
 
 /.well-known/*

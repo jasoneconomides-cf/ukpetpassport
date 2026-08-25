@@ -1,0 +1,174 @@
+{
+  "$schema": "https://raw.githubusercontent.com/ards-project/ard-spec/main/spec/schemas/ai-catalog.schema.json",
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "UK Pet Passport",
+    "identifier": "did:web:ukpetpassport.com",
+    "documentationUrl": "https://ukpetpassport.com/AGENTS.md"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:ukpetpassport.com:a2a:guidance-agent",
+      "displayName": "UK Pet Passport Guidance Agent Card",
+      "type": "application/a2a-agent-card+json",
+      "url": "https://ukpetpassport.com/.well-known/agent-card.json",
+      "description": "A2A agent card describing public UK Pet Passport guidance capabilities for pet travel rules, AHC guidance, source discovery and blog content discovery.",
+      "tags": [
+        "a2a",
+        "pet-travel",
+        "animal-health-certificate",
+        "govuk",
+        "uk",
+        "eu-travel"
+      ],
+      "capabilities": [
+        "PetTravelGuidance",
+        "AnimalHealthCertificateGuidance",
+        "BlogContentDiscovery",
+        "OfficialSourceDiscovery"
+      ],
+      "representativeQueries": [
+        "Find current UK to EU pet travel guidance for dogs, cats or ferrets",
+        "Find Animal Health Certificate guidance for travelling from Great Britain to the EU",
+        "Find official-source notes for returning to Great Britain with a dog",
+        "Find UK Pet Passport blog articles about post-Brexit pet travel"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-08-25T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:ukpetpassport.com:mcp:public-guidance",
+      "displayName": "UK Pet Passport Public Guidance MCP Server Card",
+      "type": "application/mcp-server-card+json",
+      "url": "https://ukpetpassport.com/.well-known/mcp/server-card.json",
+      "description": "MCP server card for agent-readable access to public pet travel guidance resources, blog metadata and checklist discovery.",
+      "tags": [
+        "mcp",
+        "pet-travel",
+        "content-retrieval",
+        "checklist",
+        "blog"
+      ],
+      "capabilities": [
+        "GetLatestBlogPost",
+        "GetAnimalHealthCertificateGuide",
+        "GetCountryGuide",
+        "GetPetTravelChecklist"
+      ],
+      "representativeQueries": [
+        "Get the latest UK Pet Passport blog post",
+        "Get the Animal Health Certificate guide",
+        "Get a country guide for taking a pet from the UK to France",
+        "Get the UK pet travel checklist"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-08-25T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:ukpetpassport.com:skills:public-content",
+      "displayName": "UK Pet Passport Agent Skills Index",
+      "type": "application/agent-skills+json",
+      "url": "https://ukpetpassport.com/.well-known/agent-skills/index.json",
+      "description": "Agent Skills index advertising public content-retrieval skills for UK Pet Passport guides, blog posts and checklist access.",
+      "tags": [
+        "agent-skills",
+        "content-retrieval",
+        "blog",
+        "checklist"
+      ],
+      "capabilities": [
+        "ReadLatestBlogPost",
+        "GetAHCGuide",
+        "GetFranceTravelGuide",
+        "Get2027PassportInfo",
+        "GetChecklist"
+      ],
+      "representativeQueries": [
+        "Find the latest blog post from UK Pet Passport",
+        "Find the guide for taking a dog from the UK to France",
+        "Find the article about whether the UK Pet Passport will return",
+        "Find the UK to Europe pet travel checklist"
+      ],
+      "version": "0.2.0",
+      "updatedAt": "2026-08-25T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:ukpetpassport.com:catalog:api",
+      "displayName": "UK Pet Passport API Catalog",
+      "type": "application/linkset+json",
+      "url": "https://ukpetpassport.com/.well-known/api-catalog",
+      "description": "RFC 9727-style resource catalog linking to public machine-readable resources for the UK Pet Passport site and blog.",
+      "tags": [
+        "api-catalog",
+        "linkset",
+        "rfc9727",
+        "resources"
+      ],
+      "capabilities": [
+        "ResourceCatalog",
+        "SitemapDiscovery",
+        "BlogDiscovery",
+        "LLMHintDiscovery"
+      ],
+      "representativeQueries": [
+        "Discover machine-readable resources for ukpetpassport.com",
+        "Find the UK Pet Passport sitemap and blog sitemap",
+        "Find llms.txt and agent guidance for UK Pet Passport",
+        "Find public resource catalogs for UK Pet Passport"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-08-25T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:ukpetpassport.com:content:llms",
+      "displayName": "UK Pet Passport llms.txt",
+      "type": "text/plain",
+      "url": "https://ukpetpassport.com/llms.txt",
+      "description": "LLM hint file summarising the site's purpose, key pages and important factual context for AI assistants.",
+      "tags": [
+        "llms.txt",
+        "content",
+        "site-summary",
+        "ai-input"
+      ],
+      "capabilities": [
+        "SiteSummary",
+        "KeyFacts",
+        "ImportantPages"
+      ],
+      "representativeQueries": [
+        "Summarize the purpose of ukpetpassport.com",
+        "Find important UK Pet Passport pages for AI assistants",
+        "Find key facts about UK pet travel guidance on this site",
+        "Find the site summary for UK Pet Passport"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-08-25T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:ukpetpassport.com:auth:policy",
+      "displayName": "UK Pet Passport Agent Authentication Guidance",
+      "type": "text/markdown",
+      "url": "https://ukpetpassport.com/auth.md",
+      "description": "Public authentication and access guidance for agents interacting with UK Pet Passport resources.",
+      "tags": [
+        "auth",
+        "agent-guidance",
+        "access-policy"
+      ],
+      "capabilities": [
+        "AuthenticationGuidance",
+        "AccessPolicy",
+        "AgentUsePolicy"
+      ],
+      "representativeQueries": [
+        "Find authentication guidance for UK Pet Passport agents",
+        "Find access policy for UK Pet Passport machine-readable resources",
+        "Find agent-use guidance for ukpetpassport.com",
+        "Find auth.md for UK Pet Passport"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-08-25T00:00:00Z"
+    }
+  ]
+}
