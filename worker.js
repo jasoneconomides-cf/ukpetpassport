@@ -3,6 +3,7 @@ import { parseHTML } from "linkedom";
 
 const MARKDOWN_ACCEPT = /(?:^|,)\s*text\/markdown(?:\s*;[^,]*)?(?:,|$)/i;
 const HOMEPAGE_LINK_HEADER = [
+  '</.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/json"',
   '</.well-known/api-catalog>; rel="api-catalog"',
   '</.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json"',
   '</auth.md>; rel="service-doc"; type="text/markdown"',
