@@ -36,6 +36,9 @@ function isNoindexAsset(url) {
     "/checklist-download",
     "/checklist-download.html",
     "/checklist.pdf",
+    "/folkestone-dover-vets-download",
+    "/folkestone-dover-vets-download.html",
+    "/folkestone-dover-animal-health-certificate-guide.pdf",
   ].includes(url.pathname);
 }
 
@@ -79,6 +82,10 @@ export default {
         ? new URL(`/index.html${url.search}`, url)
         : url.pathname === "/checklist-download"
           ? new URL(`/checklist-download.html${url.search}`, url)
+        : url.pathname === "/folkestonedovervets"
+          ? new URL(`/folkestonedovervets.html${url.search}`, url)
+        : url.pathname === "/folkestone-dover-vets-download"
+          ? new URL(`/folkestone-dover-vets-download.html${url.search}`, url)
         : url;
     const assetRequest =
       acceptsMarkdown && request.method === "HEAD"
